@@ -1,7 +1,7 @@
 # Kodlama.io.Devs
 
 ## Proje Amacı
-Gezgin satıcı problemini çözmek üzere geliştirdiğim algoritmadır.
+Knapsack (Sırt Çantası) problemini çözmek üzere geliştirdiğim algoritmadır.
 *** 
 ## Kullanılan Diller
 * Java
