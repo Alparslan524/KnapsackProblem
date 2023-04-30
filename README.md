@@ -1,4 +1,4 @@
-# Kodlama.io.Devs
+# Knapsack
 
 ## Proje Amacı
 Knapsack (Sırt Çantası) problemini çözmek üzere geliştirdiğim algoritmadır.
