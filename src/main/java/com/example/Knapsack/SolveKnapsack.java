@@ -6,10 +6,12 @@ public class SolveKnapsack {
 
 	ArrayList<Integer> values;
 	ArrayList<Integer> weights;
+	ArrayList<Integer> copyValues= new ArrayList<Integer>();
 
 	public SolveKnapsack(ArrayList<Integer> values, ArrayList<Integer> weights) {
 		this.values = values;
 		this.weights = weights;
+		copyValues.addAll(values);
 		createUsedItems();
 	}
 
@@ -18,20 +20,24 @@ public class SolveKnapsack {
 
 	int maxWeight;
 	int totalWeight = 0;
+	
 
 	public int[] solveKnapsack() {
 		maxWeight = weights.get(0);
+		
 		algorithmKnapsack();
 		return usedItems;
 	}
 
 	public void algorithmKnapsack() {
-
+		
+		
+		
 		while (values.size() > 1) {// Text dosyasındaki ilk değerler kalacak(Toplam ağırlık ve eşya sayısı)
 			int largestItem = largestItem();// values.get(largestItem) Value/weight değeri en büyük item
 
 			if (totalWeight < maxWeight && weights.get(largestItem) < maxWeight - totalWeight) {
-				add(largestItem - 1);
+				add(values.get(largestItem));
 				optimalValue = optimalValue + values.get(largestItem);
 				totalWeight = totalWeight + weights.get(largestItem);
 				values.remove(largestItem);
@@ -45,7 +51,10 @@ public class SolveKnapsack {
 	}
 
 	public void add(int a) {// Alınan ürünleri 1 yaptığımız dizi
-		usedItems[a] = 1;
+		// copyValues ile eklenen değerin orjiinal index numarasını bulduk.
+		// (Orjinal indexleri kayıyor çünkü sürekli remove işlemleri yapıyoruz. Bu yüzden ilk indexlerine copyValues ile ulaştık)
+		int index = copyValues.indexOf(a);
+		usedItems[index-1]=1;
 	}
 
 	public void createUsedItems() {// Diziyi oluşturup sıfır atıyor

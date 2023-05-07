@@ -6,7 +6,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		String path = "C:/campspring/Knapsack/src/main/java/com/example/Knapsack/ks_4_0";
+		String path = "ks_4_0";
 
 		ReadFromFile readFromFile = new ReadFromFile();
 
@@ -14,15 +14,12 @@ public class Main {
 		ArrayList<Integer> weights = readFromFile.getWeights(path);
 
 		SolveKnapsack solveKnapsack = new SolveKnapsack(values, weights);
-
 		int[] usedItems = solveKnapsack.solveKnapsack();
+		
+		System.out.println(solveKnapsack.optimalValue);
+		
 		for (int i = 0; i < usedItems.length; i++) {
 			System.out.print(usedItems[i] + " ");
-		}
-		System.out.println(" ");
-
-		System.out.println("Optimum Value: " + solveKnapsack.optimalValue);
-		System.out.println("Total Weights: " + solveKnapsack.totalWeight);
-
+		}	
 	}
 }
